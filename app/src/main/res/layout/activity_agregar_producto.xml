@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp"
+    android:background="@android:color/white"
+    tools:context=".AgregarProductoActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="24dp">
+
+        <ImageView
+            android:id="@+id/imageView11"
+            android:layout_width="wrap_content"
+            android:layout_height="92dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="16dp"
+            app:srcCompat="@drawable/logo" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/titulo_agregar_producto"
+            android:textColor="@color/negro"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:gravity="center_horizontal"
+            android:layout_marginBottom="16dp" />
+
+        <EditText
+            android:id="@+id/etNombreProducto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_nombre_producto"
+            android:minHeight="48dp"
+            android:paddingVertical="12dp"
+            android:layout_marginTop="12dp" />
+
+        <EditText
+            android:id="@+id/etDescripcion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_descripcion"
+            android:minHeight="48dp"
+            android:paddingVertical="12dp"
+            android:layout_marginTop="8dp" />
+
+        <EditText
+            android:id="@+id/etPrecioProducto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_precio"
+            android:inputType="numberDecimal"
+            android:minHeight="48dp"
+            android:paddingVertical="12dp"
+            android:layout_marginTop="8dp" />
+
+        <EditText
+            android:id="@+id/etTalla"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_talla"
+            android:minHeight="48dp"
+            android:paddingVertical="12dp"
+            android:layout_marginTop="8dp" />
+
+        <EditText
+            android:id="@+id/etStock"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_stock"
+            android:inputType="number"
+            android:minHeight="48dp"
+            android:paddingVertical="12dp"
+            android:layout_marginTop="8dp" />
+
+        <!-- Spinner para Categoría (cambiado de EditText) -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/label_categoria"
+            android:textColor="@color/negro"
+            android:textSize="14sp"
+            android:layout_marginTop="8dp" />
+        <Spinner
+            android:id="@+id/spCategoriaProducto"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="4dp"
+            android:background="@android:drawable/btn_dropdown"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:spinnerMode="dropdown"/>
+
+        <!-- Spinner para Género (nuevo campo) -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/label_genero"
+            android:textColor="@color/negro"
+            android:textSize="14sp"
+            android:layout_marginTop="8dp" />
+        <Spinner
+            android:id="@+id/spGeneroProducto"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="4dp"
+            android:background="@android:drawable/btn_dropdown"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:spinnerMode="dropdown"/>
+
+        <EditText
+            android:id="@+id/etImagenUrl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="URL de la imagen"
+            android:minHeight="48dp"
+            android:paddingVertical="12dp"
+            android:layout_marginTop="8dp" />
+
+        <Button
+            android:id="@+id/btnGuardarProducto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_guardar_producto"
+            android:backgroundTint="@color/verde_gnova"
+            android:textColor="@color/blanco"
+            android:layout_marginTop="16dp" />
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,34 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Tema principal de la aplicación que hereda del tema personalizado -->
+    <style name="Theme.Gnova" parent="Theme.Gnova.Pesonalizado" />
+
+    <!-- Tema personalizado para toda la aplicación -->
+    <style name="Theme.Gnova.Pesonalizado" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Colores primarios de la marca Gnova -->
+        <item name="colorPrimary">@color/verde_gnova</item>
+        <item name="colorPrimaryVariant">@color/negro</item> <!-- Color de la barra de estado -->
+        <item name="colorOnPrimary">@color/blanco</item>    <!-- Color de texto/iconos sobre colorPrimary -->
+
+        <!-- Otros colores de la marca (opcional, si los defines) -->
+        <!-- <item name="colorSecondary">@color/your_secondary_color</item> -->
+        <!-- <item name="colorSecondaryVariant">@color/your_secondary_variant_color</item> -->
+        <!-- <item name="colorOnSecondary">@color/your_on_secondary_color</item> -->
+
+        <!-- Color de la barra de estado (para versiones de Android 5.0 Lollipop y superiores) -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+
+        <!-- Asegúrate de que no haya título ni barra de acción si el parent es NoActionBar -->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+
+        <!-- ¡Añadido para ocultar la barra de estado y hacer la app de pantalla completa! -->
+        <item name="android:windowFullscreen">true</item>
+
+        <!-- Personalizaciones adicionales aquí -->
+    </style>
+
+    <!-- Si tenías un tema "Base" que no se usa, puedes quitarlo, o mantenerlo si es para alguna herencia específica -->
+    <!-- <style name="Base.Theme.Gnova" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/my_light_primary</item>
+    </style> -->
+</resources>

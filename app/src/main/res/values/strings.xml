@@ -1,0 +1,118 @@
+<!-- res/values/strings.xml -->
+<resources>
+    <!-- Información General de la Aplicación -->
+    <string name="app_name">Gnova</string>
+    <string name="logo_gnova">Logo G\'nova</string>
+    <string name="imagen_inicio">Imagen decorativa de inicio</string>
+    <string name="bienvenida_cliente">¡Bienvenido a Gnova!</string>
+
+    <!-- Cadenas para Login y Registro -->
+    <string name="hint_email">Correo electrónico</string>
+    <string name="hint_password">Contraseña</string>
+    <string name="btn_login">Iniciar sesión</string>
+    <string name="btn_register">Registrarse</string>
+    <string name="admin_email">admin@gnova.com</string>
+    <string name="admin_password">admin123</string>
+    <string name="hint_nombre">Nombre completo</string>
+    <string name="btn_ir_login">¿Ya tienes cuenta? Iniciar sesión</string>
+
+    <!-- Cadenas Generales de UI y Navegación -->
+    <string name="hint_buscar">Buscar</string>
+    <string name="carrito">Carrito</string>
+    <string name="favoritos">Favoritos</string>
+    <string name="inicio">Inicio</string>
+    <string name="perfil">Perfil</string>
+    <string name="volver">Volver</string>
+    <string name="navigation_drawer_open">Abrir menú de navegación</string>
+    <string name="navigation_drawer_close">Cerrar menú de navegación</string>
+    <string name="no_resultados">No se encontraron resultados</string>
+
+
+    <!-- Cadenas para el Administrador -->
+    <string name="titulo_admin">Menú de administración</string>
+    <string name="btn_ver_productos">Ver productos</string>
+    <string name="btn_agregar_producto">Agregar producto</string>
+    <string name="btn_ver_usuarios">Ver usuarios</string>
+    <string name="btn_configuracion">Configuración</string>
+    <string name="btn_volver_dashboard">Volver al menu</string>
+    <string name="titulo_lista_productos">Lista de productos</string>
+    <string name="titulo_agregar_producto">Agregar nuevo producto</string>
+    <string name="hint_nombre_producto">Nombre del producto</string>
+    <string name="hint_descripcion">Descripción</string>
+    <string name="hint_precio">Precio</string>
+    <string name="hint_talla">Talla</string>
+    <string name="hint_stock">Stock</string>
+    <string name="hint_categoria">Categoría</string>
+    <string name="hint_url_imagen">URL de la imagen</string>
+    <string name="btn_guardar_producto">Guardar producto</string>
+    <string name="msg_guardado_exito">Producto guardado correctamente</string>
+    <string name="titulo_editar_producto">Editar producto</string>
+    <string name="btn_actualizar">Actualizar producto</string>
+    <string name="btn_cancelar">Cancelar</string>
+    <string name="titulo_configuracion">Configuración</string>
+    <string name="btn_cambiar_clave">Cambiar contraseña</string>
+
+
+    <!-- Cadenas para Vistas de Cliente (Detalle, Carrito, Favoritos, Perfil) -->
+    <string name="titulo_categoria">Productos por categoría</string>
+    <string name="btn_agregar_carrito">Agregar al carrito</string>
+    <string name="btn_agregar_favorito">Agregar a favoritos</string>
+    <string name="titulo_favoritos">Tus favoritos</string>
+    <string name="titulo_carrito">Tu carrito</string>
+    <string name="btn_finalizar">Finalizar compra</string>
+    <string name="msg_compra_realizada">Compra realizada. ¡Gracias por confiar en Gnova!</string>
+    <string name="titulo_perfil">Perfil del cliente</string>
+    <string name="btn_editar_datos">Editar datos</string>
+    <string name="btn_cerrar_sesion">Cerrar sesión</string>
+    <string name="btn_eliminar_carrito">Eliminar del carrito</string>
+
+
+    <!-- Cadenas de Toast/Mensajes -->
+    <string name="msg_agregado_carrito">%1$s agregado al carrito</string>
+    <string name="msg_sin_stock">¡Lo sentimos! No hay stock disponible para %1$s</string>
+    <string name="msg_agregado_favoritos">%1$s agregado a favoritos</string>
+    <string name="error_producto_no_encontrado">Error: Producto no encontrado.</string>
+    <string name="msg_eliminado_carrito">%1$s eliminado del carrito</string>
+    <string name="msg_no_en_carrito">%1$s no se encuentra en el carrito</string>
+    <string name="msg_funcion_no_disponible">Función no disponible por el momento</string>
+    <string name="msg_editar_datos">Funcionalidad de editar datos aún no implementada</string>
+
+
+    <!-- Cadenas Específicas de Formato y Detalle de Producto -->
+    <string name="formato_precio">S/.%.2f</string>
+    <string name="detalle_precio">Precio: S/.%1$s</string>
+    <string name="detalle_talla">Talla: %1$s</string>
+    <string name="detalle_categoria">Categoría: %1$s</string>
+    <string name="detalle_genero">Género: %1$s</string>
+    <string name="detalle_stock">Stock: %1$d</string>
+
+    <!-- Cadenas para Géneros (en arrays) -->
+    <string name="genero_hombre">Hombre</string>
+    <string name="genero_mujer">Mujer</string>
+    <string name="genero_nino">Niño</string>
+    <string name="genero_nina">Niña</string>
+    <string-array name="generos_array">
+        <item>Hombre</item>
+        <item>Mujer</item>
+        <item>Niño</item>
+        <item>Niña</item>
+    </string-array>
+
+    <!-- Cadenas para Categorías (en arrays) -->
+    <string name="categoria_general">General</string>
+    <string name="label_categoria">Categoría:</string>
+    <string name="label_genero">Género:</string>
+    <string-array name="categorias_array">
+        <item>Zapatillas</item>
+        <item>Ropa</item>
+        <item>Accesorios</item>
+        <item>Novedades</item>
+    </string-array>
+
+    <!-- Cadenas para Categorías -->
+    <string name="categoria_novedades">Novedades</string>
+    <string name="categoria_zapatillas">Zapatillas</string>
+    <string name="categoria_ropa">Ropa</string>
+    <string name="categoria_accesorios">Accesorios</string>
+
+</resources>

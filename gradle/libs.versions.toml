@@ -1,0 +1,57 @@
+[versions]
+# Define las versiones de los plugins y librerías que usarás
+androidGradlePlugin = "8.2.0" # Coincide con el classpath en build.gradle.kts (Project level)
+kotlin = "2.0.0" # ¡IMPORTANTE: Versión actualizada a 2.0.0!
+googleServices = "4.4.2" # Coincide con el classpath en build.gradle.kts (Project level)
+
+# Define las versiones de las librerías de tu aplicación (ejemplo)
+coreKtx = "1.13.1"
+appcompat = "1.6.1"
+material = "1.12.0"
+constraintlayout = "2.1.4"
+drawerlayout = "1.2.0"
+firebaseBom = "32.8.0" # Puede que necesites actualizar el BOM de Firebase más adelante si hay incompatibilidades
+glide = "4.16.0"
+lifecycleRuntimeKtx = "2.7.0"
+junit = "4.13.2"
+androidTestExtJunit = "1.1.5"
+espressoCore = "3.5.1"
+firebaseFirestore = "26.0.0"
+
+
+[libraries]
+# Define las librerías con sus versiones
+# AndroidX
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+google-android-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+androidx-drawerlayout = { group = "androidx.drawerlayout", name = "drawerlayout", version.ref = "drawerlayout" }
+
+# Firebase
+firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebaseBom" }
+firebase-firestore-ktx = { group = "com.google.firebase", name = "firebase-firestore-ktx" }
+firebase-analytics-ktx = { group = "com.google.firebase", name = "firebase-analytics-ktx" }
+
+# Glide
+glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
+glide-compiler = { group = "com.github.bumptech.glide", name = "compiler", version.ref = "glide" } # Para kapt
+
+# Kotlin Coroutines
+androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
+androidx-lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifecycleRuntimeKtx" } # Misma versión que runtime
+androidx-lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycleRuntimeKtx" } # Misma versión que runtime
+
+# Pruebas
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidTestExtJunit" }
+androidx-test-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+firebase-firestore = { group = "com.google.firebase", name = "firebase-firestore", version.ref = "firebaseFirestore" }
+
+
+[plugins]
+# Define los plugins con sus IDs y versiones
+android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+google-gms-googleServices = { id = "com.google.gms.google-services", version.ref = "googleServices" } # Plugin de Google Services
+kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" } # Plugin KAPT

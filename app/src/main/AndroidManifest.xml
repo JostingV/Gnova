@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Gnova"
+        tools:targetApi="31">
+        <activity android:name=".LoginActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity> <!-- Actividades del flujo del cliente -->
+        <activity
+            android:name=".RegistroActivity" android:exported="false" />
+        <activity
+            android:name=".InicioClienteActivity" android:exported="false" />
+        <activity
+            android:name=".ProductosPorCategoriaActivity" android:exported="false" />
+        <activity
+            android:name=".DetalleProductoActivity" android:exported="false" />
+        <activity
+            android:name=".FavoritosActivity" android:exported="false" />
+        <activity
+            android:name=".CarritoActivity" android:exported="false" />
+        <activity
+            android:name=".PerfilClienteActivity" android:exported="false" />
+        <!-- ADMIN -->
+        <activity android:name=".InicioAdminActivity" android:exported="false" />
+        <activity android:name=".ListaProductosAdminActivity" android:exported="false" />
+        <activity android:name=".AgregarProductoActivity" android:exported="false" />
+        <activity android:name=".EditarProductoActivity" android:exported="false" />
+        <activity android:name=".ConfiguracionAdminActivity" android:exported="false" />
+        <!-- Agrega ListaUsuariosActivity si la implementas -->
+
+    </application>
+
+</manifest>
