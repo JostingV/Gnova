@@ -12,32 +12,34 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Gnova"
         tools:targetApi="31">
-        <activity android:name=".LoginActivity" android:exported="true">
+        <activity android:name=".auth.LoginActivity" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity> <!-- Actividades del flujo del cliente -->
         <activity
-            android:name=".RegistroActivity" android:exported="false" />
+            android:name=".auth.RegistroActivity" android:exported="false" />
         <activity
-            android:name=".InicioClienteActivity" android:exported="false" />
+            android:name=".ui.activities.client.InicioClienteActivity" android:exported="false" />
         <activity
-            android:name=".ProductosPorCategoriaActivity" android:exported="false" />
+            android:name=".ui.activities.shared.ProductosPorCategoriaActivity" android:exported="false" />
         <activity
-            android:name=".DetalleProductoActivity" android:exported="false" />
+            android:name=".ui.activities.shared.DetalleProductoActivity" android:exported="false" />
         <activity
-            android:name=".FavoritosActivity" android:exported="false" />
+            android:name=".ui.activities.client.FavoritosActivity" android:exported="false" />
         <activity
-            android:name=".CarritoActivity" android:exported="false" />
+            android:name=".ui.activities.client.CarritoActivity" android:exported="false" />
         <activity
-            android:name=".PerfilClienteActivity" android:exported="false" />
+            android:name=".ui.activities.client.PerfilClienteActivity" android:exported="false" />
+        <activity
+            android:name=".ui.activities.shared.BusquedaActivity" android:exported="false" />
         <!-- ADMIN -->
-        <activity android:name=".InicioAdminActivity" android:exported="false" />
-        <activity android:name=".ListaProductosAdminActivity" android:exported="false" />
-        <activity android:name=".AgregarProductoActivity" android:exported="false" />
-        <activity android:name=".EditarProductoActivity" android:exported="false" />
-        <activity android:name=".ConfiguracionAdminActivity" android:exported="false" />
+        <activity android:name=".ui.activities.admin.InicioAdminActivity" android:exported="false" />
+        <activity android:name=".ui.activities.admin.ListaProductosAdminActivity" android:exported="false" />
+        <activity android:name=".ui.activities.admin.AgregarProductoActivity" android:exported="false" />
+        <activity android:name=".ui.activities.admin.EditarProductoActivity" android:exported="false" />
+        <activity android:name=".ui.activities.admin.ConfiguracionAdminActivity" android:exported="false" />
         <!-- Agrega ListaUsuariosActivity si la implementas -->
 
     </application>

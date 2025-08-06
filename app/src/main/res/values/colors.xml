@@ -3,4 +3,7 @@
         <color name="negro">#000000</color>
         <color name="blanco">#FFFFFF</color>
         <color name="verde_gnova">#4CAF50</color>
+        <color name="gris_claro">#E0E0E0</color>
+        <color name="gris_medio">#9E9E9E</color>
+        <color name="gris_hint">#757575</color>
 </resources>
