@@ -42,15 +42,34 @@ class RegistroActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            // Guardar datos del cliente en SharedPreferences (simulación de registro)
-            val prefs = getSharedPreferences("gnova_prefs", MODE_PRIVATE)
-            prefs.edit().putString("nombre", nombre)
-                .putString("correo", correo)
-                .apply() // En una app real, la clave no se guardaría así, se usaría autenticación Firebase/backend
+            // Validar formato de email
+            if (!android.util.Patterns.EMAIL_ADDRESS.matcher(correo).matches()) {
+                Toast.makeText(this, "Por favor ingresa un correo electrónico válido", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
 
-            Toast.makeText(this, "Registro exitoso. ¡Bienvenido, $nombre!", Toast.LENGTH_LONG).show()
-            startActivity(Intent(this, InicioClienteActivity::class.java))
-            finish() // Finaliza la actividad de registro
+            // Guardar datos del cliente en Firestore
+            val db = FirebaseManager.getFirestore()
+            val usersRef = db.collection("users")
+            val userData = hashMapOf(
+                "nombre" to nombre,
+                "email" to correo,
+                "password" to clave,
+                "role" to "client"
+            )
+            usersRef.document(correo).set(userData)
+                .addOnSuccessListener {
+                    val prefs = getSharedPreferences("gnova_prefs", MODE_PRIVATE)
+                    prefs.edit().putString("nombre", nombre)
+                        .putString("correo", correo)
+                        .apply()
+                    Toast.makeText(this, "Registro exitoso. ¡Bienvenido, $nombre!", Toast.LENGTH_LONG).show()
+                    startActivity(Intent(this, InicioClienteActivity::class.java))
+                    finish()
+                }
+                .addOnFailureListener {
+                    Toast.makeText(this, "Error al registrar usuario en Firestore", Toast.LENGTH_SHORT).show()
+                }
         }
 
         btnLogin.setOnClickListener {
