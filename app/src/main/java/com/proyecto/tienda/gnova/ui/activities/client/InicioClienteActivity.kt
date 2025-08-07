@@ -11,6 +11,8 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -48,6 +50,13 @@ class InicioClienteActivity : AppCompatActivity(), NavigationView.OnNavigationIt
         enableEdgeToEdge()
         setContentView(R.layout.activity_inicio_cliente)
 
+        // Manejar window insets para el espaciado correcto con la status bar
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
+
         // Inicializar vistas
         toolbar = findViewById(R.id.toolbar)
         drawerLayout = findViewById(R.id.drawer_layout)
@@ -60,14 +69,24 @@ class InicioClienteActivity : AppCompatActivity(), NavigationView.OnNavigationIt
 
         // Configurar Toolbar y Navigation Drawer
         setSupportActionBar(toolbar)
+        
+        // Configurar el ActionBarDrawerToggle con colores específicos para que sea visible
         val toggle = ActionBarDrawerToggle(
             this, drawerLayout, toolbar,
             R.string.navigation_drawer_open,
             R.string.navigation_drawer_close
         )
+        
+        // Configurar el color del icono del drawer toggle para que sea visible
+        toggle.drawerArrowDrawable.color = resources.getColor(R.color.negro, null)
+        
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
         navigationView.setNavigationItemSelectedListener(this)
+        
+        // Asegurar que el toolbar muestre el icono del menú
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setHomeButtonEnabled(true)
 
         // Configurar TabLayout para seleccionar género
         tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.genero_hombre))) // Usar getString()
