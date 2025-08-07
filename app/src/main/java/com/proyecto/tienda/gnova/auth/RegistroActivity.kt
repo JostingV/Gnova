@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.FirebaseFirestore
 import com.proyecto.tienda.gnova.R
+import com.proyecto.tienda.gnova.FirebaseManager
 import com.proyecto.tienda.gnova.ui.activities.client.InicioClienteActivity
 
 class RegistroActivity : AppCompatActivity() {
@@ -19,6 +20,10 @@ class RegistroActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        
+        // Inicializar Firebase PRIMERO
+        FirebaseManager.initialize(this)
+        
         setContentView(R.layout.activity_registro)
 
         etNombre = findViewById(R.id.etNombre)
