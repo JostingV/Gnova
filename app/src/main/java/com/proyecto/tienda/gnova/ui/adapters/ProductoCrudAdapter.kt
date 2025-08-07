@@ -16,6 +16,8 @@ class ProductoCrudAdapter(
     private val onEliminar: (String) -> Unit // El callback ahora recibe un String (el ID del producto)
 ) : RecyclerView.Adapter<ProductoCrudAdapter.ViewHolder>() {
 
+    private var productosFiltrados: List<Producto> = productos // Lista filtrada
+
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val tvNombre: TextView = view.findViewById(R.id.tvNombreProducto)
         val imgProducto: android.widget.ImageView = view.findViewById(R.id.imgProducto)
@@ -42,10 +44,10 @@ class ProductoCrudAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(productos[position])
+        holder.bind(productosFiltrados[position])
     }
 
-    override fun getItemCount() = productos.size
+    override fun getItemCount() = productosFiltrados.size
 
     /**
      * Actualiza la lista de productos del adaptador y notifica los cambios.
@@ -53,7 +55,24 @@ class ProductoCrudAdapter(
      */
     fun actualizarProductos(nuevaLista: List<Producto>) {
         productos = nuevaLista
+        productosFiltrados = nuevaLista // Actualizamos la lista filtrada con todos los productos
         notifyDataSetChanged() // Por ahora, se usa notifyDataSetChanged para simplicidad.
         // Para un rendimiento óptimo en listas grandes, se usaría DiffUtil.
+    }
+
+    /**
+     * Filtra los productos según el texto ingresado en el SearchView.
+     * @param query El texto de búsqueda.
+     */
+    fun filtrarProductos(query: String) {
+        productosFiltrados = if (query.isEmpty()) {
+            productos // Si no hay texto en la búsqueda, mostrar todos los productos
+        } else {
+            productos.filter { producto ->
+                producto.nombre.contains(query, ignoreCase = true) ||
+                        producto.categoria.contains(query, ignoreCase = true)
+            }
+        }
+        notifyDataSetChanged() // Actualizar la vista del RecyclerView
     }
 }

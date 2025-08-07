@@ -14,12 +14,13 @@ import kotlinx.coroutines.launch
 import com.proyecto.tienda.gnova.R
 import com.proyecto.tienda.gnova.ui.adapters.ProductoCrudAdapter
 import com.proyecto.tienda.gnova.data.repositories.ProductoRepositorio
+import androidx.appcompat.widget.SearchView
 
 class ListaProductosAdminActivity : AppCompatActivity() {
 
     private lateinit var recycler: RecyclerView
     private lateinit var btnVolver: Button
-    private lateinit var adapter: ProductoCrudAdapter // Declarar el adaptador como propiedad de la clase
+    private lateinit var adapter: ProductoCrudAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,8 +31,7 @@ class ListaProductosAdminActivity : AppCompatActivity() {
 
         recycler.layoutManager = LinearLayoutManager(this)
 
-        // Inicializar el adaptador con una lista vacía por ahora
-        // El adaptador será actualizado más tarde con los datos de Firestore.
+        // Inicializar el adaptador con una lista vacía
         adapter = ProductoCrudAdapter(
             productos = emptyList(),
             onEditar = { producto ->
@@ -39,8 +39,7 @@ class ListaProductosAdminActivity : AppCompatActivity() {
                 intent.putExtra("producto", producto)
                 startActivity(intent)
             },
-            onEliminar = { productoId -> // El callback ahora recibe el ID del producto (String)
-                // En una app real, usarías un AlertDialog o un BottomSheet para confirmar la eliminación.
+            onEliminar = { productoId ->
                 Toast.makeText(this, "Eliminando producto...", Toast.LENGTH_SHORT).show()
                 ProductoRepositorio.eliminarProducto(
                     productoId,
@@ -55,13 +54,25 @@ class ListaProductosAdminActivity : AppCompatActivity() {
         )
         recycler.adapter = adapter
 
-        // Observar cambios en los productos desde el repositorio (Firestore)
+        // Configurar SearchView
+        val searchView = findViewById<SearchView>(R.id.searchViewProducto)
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                newText?.let {
+                    adapter.filtrarProductos(it) // Filtrar productos a medida que se escribe
+                }
+                return true
+            }
+        })
+
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 ProductoRepositorio.productos.collect { productosActualizados ->
-                    // Cuando los productos cambian en Firestore, actualizar el adaptador
-                    // Usamos un setter para la lista en el adaptador y llamamos a notifyDataSetChanged.
-                    adapter.actualizarProductos(productosActualizados) // Llamar a un método de actualización en el adaptador
+                    adapter.actualizarProductos(productosActualizados)
                 }
             }
         }
@@ -71,13 +82,11 @@ class ListaProductosAdminActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        // Asegúrate de que la escucha de Firestore esté activa cuando la actividad esté visible
         ProductoRepositorio.iniciarEscuchaProductos()
     }
 
     override fun onPause() {
         super.onPause()
-        // Detén la escucha de Firestore cuando la actividad no esté visible para ahorrar recursos
         ProductoRepositorio.detenerEscuchaProductos()
     }
 }
