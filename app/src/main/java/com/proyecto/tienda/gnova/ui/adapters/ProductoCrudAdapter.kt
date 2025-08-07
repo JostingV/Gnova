@@ -18,11 +18,18 @@ class ProductoCrudAdapter(
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val tvNombre: TextView = view.findViewById(R.id.tvNombreProducto)
+        val imgProducto: android.widget.ImageView = view.findViewById(R.id.imgProducto)
         val btnEditar: Button = view.findViewById(R.id.btnEditar)
         val btnEliminar: Button = view.findViewById(R.id.btnEliminar)
 
         fun bind(producto: Producto) {
             tvNombre.text = producto.nombre
+            // Cargar imagen con Glide
+            com.bumptech.glide.Glide.with(itemView.context)
+                .load(producto.imagenUrl)
+                .placeholder(com.proyecto.tienda.gnova.R.drawable.logo)
+                .error(com.proyecto.tienda.gnova.R.drawable.logo)
+                .into(imgProducto)
             btnEditar.setOnClickListener { onEditar(producto) }
             btnEliminar.setOnClickListener { onEliminar(producto.id) } // Pasar el ID del producto
         }

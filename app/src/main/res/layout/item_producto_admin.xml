@@ -19,10 +19,12 @@
         android:textStyle="bold" />
 
     <ImageView
-        android:id="@+id/imageView15"
+        android:id="@+id/imgProducto"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/tienda" />
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:contentDescription="@string/hint_url_imagen" />
+
 
     <LinearLayout
         android:layout_width="match_parent"

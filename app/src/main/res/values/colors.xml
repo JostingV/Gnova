@@ -6,4 +6,5 @@
         <color name="gris_claro">#E0E0E0</color>
         <color name="gris_medio">#9E9E9E</color>
         <color name="gris_hint">#757575</color>
+        <color name="transparent">#00000000</color>
 </resources>
