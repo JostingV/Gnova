@@ -39,23 +39,58 @@ class LoginActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            // Lógica de autenticación (actualmente hardcodeada y guardado en SharedPreferences)
-            if (email == "admin@gnova.com" && password == "admin123") {
-                startActivity(Intent(this, InicioAdminActivity::class.java))
-            } else {
-                // Guardar correo y nombre para mostrarlo luego en perfil de cliente (simulación de login)
-                val prefs = getSharedPreferences("gnova_prefs", MODE_PRIVATE)
-                prefs.edit().putString("correo", email).apply()
-                // Para el nombre, podríamos intentar recuperarlo si el correo ya existe,
-                // o pedirlo en el registro y guardarlo. Aquí usaremos "Cliente Gnova" por defecto
-                // si no se ha registrado un nombre antes.
-                if (prefs.getString("nombre", null) == null) {
-                    prefs.edit().putString("nombre", "Cliente Gnova").apply()
-                }
-
-                startActivity(Intent(this, InicioClienteActivity::class.java))
+            // Validar formato de email
+            if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                Toast.makeText(this, "Por favor ingresa un correo electrónico válido", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
             }
-            finish() // Cierra la actividad de Login
+
+            val db = FirebaseManager.getFirestore()
+            val usersRef = db.collection("users")
+
+            // Guardar admin si no existe
+            val adminEmail = "admin@gnova.com"
+            val adminPassword = "admin123"
+            if (email == adminEmail && password == adminPassword) {
+                usersRef.document(adminEmail).get().addOnSuccessListener { doc ->
+                    if (!doc.exists()) {
+                        val adminData = hashMapOf(
+                            "email" to adminEmail,
+                            "password" to adminPassword,
+                            "role" to "admin"
+                        )
+                        usersRef.document(adminEmail).set(adminData)
+                    }
+                    // Login como admin
+                    startActivity(Intent(this, InicioAdminActivity::class.java))
+                    finish()
+                }.addOnFailureListener {
+                    Toast.makeText(this, "Error accediendo a Firestore", Toast.LENGTH_SHORT).show()
+                }
+                return@setOnClickListener
+            }
+
+            // Autenticación de usuario normal
+            usersRef.document(email).get().addOnSuccessListener { doc ->
+                if (doc.exists() && doc.getString("password") == password) {
+                    val role = doc.getString("role") ?: "client"
+                    if (role == "admin") {
+                        startActivity(Intent(this, InicioAdminActivity::class.java))
+                    } else {
+                        val prefs = getSharedPreferences("gnova_prefs", MODE_PRIVATE)
+                        prefs.edit().putString("correo", email).apply()
+                        if (prefs.getString("nombre", null) == null) {
+                            prefs.edit().putString("nombre", "Cliente Gnova").apply()
+                        }
+                        startActivity(Intent(this, InicioClienteActivity::class.java))
+                    }
+                    finish()
+                } else {
+                    Toast.makeText(this, "Credenciales incorrectas o usuario no registrado", Toast.LENGTH_SHORT).show()
+                }
+            }.addOnFailureListener {
+                Toast.makeText(this, "Error accediendo a Firestore", Toast.LENGTH_SHORT).show()
+            }
         }
 
         btnRegister.setOnClickListener {
