@@ -21,9 +21,6 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
 
-        <!-- ¡Añadido para ocultar la barra de estado y hacer la app de pantalla completa! -->
-        <item name="android:windowFullscreen">true</item>
-
         <!-- Personalizaciones adicionales aquí -->
     </style>
 

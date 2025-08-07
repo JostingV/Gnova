@@ -10,6 +10,7 @@ import com.proyecto.tienda.gnova.R
 import com.proyecto.tienda.gnova.FirebaseManager
 import com.proyecto.tienda.gnova.ui.activities.admin.InicioAdminActivity
 import com.proyecto.tienda.gnova.ui.activities.client.InicioClienteActivity
+import com.proyecto.tienda.gnova.data.repositories.ProductoRepositorio
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var etEmail: EditText
@@ -22,6 +23,9 @@ class LoginActivity : AppCompatActivity() {
         
         // Inicializar Firebase PRIMERO
         FirebaseManager.initialize(this)
+        
+        // Cargar productos de ejemplo automáticamente
+        cargarProductosIniciales()
         
         setContentView(R.layout.activity_login)
 
@@ -95,6 +99,19 @@ class LoginActivity : AppCompatActivity() {
 
         btnRegister.setOnClickListener {
             startActivity(Intent(this, RegistroActivity::class.java))
+        }
+    }
+
+    private fun cargarProductosIniciales() {
+        // Verificar si ya se cargaron productos antes
+        val prefs = getSharedPreferences("gnova_prefs", MODE_PRIVATE)
+        val productosYaCargados = prefs.getBoolean("productos_cargados", false)
+        
+        if (!productosYaCargados) {
+            ProductoRepositorio.inicializarProductosEjemplo()
+            // Marcar como cargados para no duplicar
+            prefs.edit().putBoolean("productos_cargados", true).apply()
+            Toast.makeText(this, "Cargando productos iniciales...", Toast.LENGTH_SHORT).show()
         }
     }
 }

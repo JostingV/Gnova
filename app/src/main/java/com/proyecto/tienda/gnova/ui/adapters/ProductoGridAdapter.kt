@@ -35,7 +35,7 @@ class ProductoGridAdapter(
         val producto = productos[position]
         
         holder.nombre.text = producto.nombre
-        holder.precio.text = "$${producto.precio}"
+        holder.precio.text = String.format("$%.2f", producto.precio)
         
         // Cargar imagen con Glide
         Glide.with(holder.itemView.context)
