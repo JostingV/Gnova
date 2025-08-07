@@ -7,6 +7,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.proyecto.tienda.gnova.R
+import com.proyecto.tienda.gnova.FirebaseManager
 import com.proyecto.tienda.gnova.ui.activities.admin.InicioAdminActivity
 import com.proyecto.tienda.gnova.ui.activities.client.InicioClienteActivity
 
@@ -18,6 +19,10 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        
+        // Inicializar Firebase PRIMERO
+        FirebaseManager.initialize(this)
+        
         setContentView(R.layout.activity_login)
 
         etEmail = findViewById(R.id.etEmail)

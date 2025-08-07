@@ -61,6 +61,19 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="473dp" />
 
+    <!-- Botón temporal para inicializar productos de ejemplo -->
+    <Button
+        android:id="@+id/btnInicializarEjemplos"
+        android:layout_width="257dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/verde_gnova"
+        android:text="Inicializar Productos"
+        android:textColor="@color/blanco"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnConfiguracion" />
+
     <ImageView
         android:id="@+id/imageView14"
         android:layout_width="204dp"

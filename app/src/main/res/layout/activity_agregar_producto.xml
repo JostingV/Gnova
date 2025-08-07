@@ -30,107 +30,232 @@
             android:textSize="24sp"
             android:textStyle="bold"
             android:gravity="center_horizontal"
-            android:layout_marginBottom="16dp" />
+            android:layout_marginBottom="24dp" />
+
+        <!-- Campo Nombre del Producto -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nombre del Producto *"
+            android:textColor="@color/negro"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp"
+            android:drawableStart="@android:drawable/ic_menu_edit"
+            android:drawablePadding="8dp" />
 
         <EditText
             android:id="@+id/etNombreProducto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hint_nombre_producto"
+            android:hint="Ej: Nike Air Max 270"
             android:minHeight="48dp"
             android:paddingVertical="12dp"
-            android:layout_marginTop="12dp" />
+            android:paddingHorizontal="16dp"
+            android:background="@drawable/edittext_background"
+            android:layout_marginBottom="16dp"
+            android:inputType="textCapWords"
+            android:textColor="@color/negro"
+            android:textColorHint="@color/gris_hint" />
+
+        <!-- Campo Descripción -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Descripción *"
+            android:textColor="@color/negro"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp"
+            android:drawableStart="@android:drawable/ic_menu_info_details"
+            android:drawablePadding="8dp" />
 
         <EditText
             android:id="@+id/etDescripcion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hint_descripcion"
+            android:hint="Ej: Zapatillas deportivas cómodas para uso diario"
             android:minHeight="48dp"
             android:paddingVertical="12dp"
-            android:layout_marginTop="8dp" />
+            android:paddingHorizontal="16dp"
+            android:background="@drawable/edittext_background"
+            android:layout_marginBottom="16dp"
+            android:inputType="textMultiLine"
+            android:maxLines="3"
+            android:textColor="@color/negro"
+            android:textColorHint="@color/gris_hint" />
+
+        <!-- Campo Precio -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Precio (USD) *"
+            android:textColor="@color/negro"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp"
+            android:drawableStart="@android:drawable/ic_menu_preferences"
+            android:drawablePadding="8dp" />
 
         <EditText
             android:id="@+id/etPrecioProducto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hint_precio"
+            android:hint="Ej: 159.99"
             android:inputType="numberDecimal"
             android:minHeight="48dp"
             android:paddingVertical="12dp"
-            android:layout_marginTop="8dp" />
+            android:paddingHorizontal="16dp"
+            android:background="@drawable/edittext_background"
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/negro"
+            android:textColorHint="@color/gris_hint" />
+
+        <!-- Campo Talla -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Talla/Tamaño *"
+            android:textColor="@color/negro"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp"
+            android:drawableStart="@android:drawable/ic_menu_sort_by_size"
+            android:drawablePadding="8dp" />
 
         <EditText
             android:id="@+id/etTalla"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hint_talla"
+            android:hint="Ej: 42, M, L, XL o Única"
             android:minHeight="48dp"
             android:paddingVertical="12dp"
-            android:layout_marginTop="8dp" />
+            android:paddingHorizontal="16dp"
+            android:background="@drawable/edittext_background"
+            android:layout_marginBottom="16dp"
+            android:inputType="textCapCharacters"
+            android:textColor="@color/negro"
+            android:textColorHint="@color/gris_hint" />
+
+        <!-- Campo Stock -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cantidad en Stock *"
+            android:textColor="@color/negro"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp"
+            android:drawableStart="@android:drawable/ic_menu_agenda"
+            android:drawablePadding="8dp" />
 
         <EditText
             android:id="@+id/etStock"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hint_stock"
+            android:hint="Ej: 25"
             android:inputType="number"
             android:minHeight="48dp"
             android:paddingVertical="12dp"
-            android:layout_marginTop="8dp" />
+            android:paddingHorizontal="16dp"
+            android:background="@drawable/edittext_background"
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/negro"
+            android:textColorHint="@color/gris_hint" />
 
-        <!-- Spinner para Categoría (cambiado de EditText) -->
+        <!-- Spinner para Categoría -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/label_categoria"
+            android:text="Categoría del Producto *"
             android:textColor="@color/negro"
             android:textSize="14sp"
-            android:layout_marginTop="8dp" />
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp"
+            android:drawableStart="@android:drawable/ic_menu_my_calendar"
+            android:drawablePadding="8dp" />
+        
         <Spinner
             android:id="@+id/spCategoriaProducto"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:layout_marginTop="4dp"
-            android:background="@android:drawable/btn_dropdown"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp"
-            android:spinnerMode="dropdown"/>
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/edittext_background"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:spinnerMode="dropdown"
+            android:popupBackground="@color/blanco" />
 
-        <!-- Spinner para Género (nuevo campo) -->
+        <!-- Spinner para Género -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/label_genero"
+            android:text="Dirigido a *"
             android:textColor="@color/negro"
             android:textSize="14sp"
-            android:layout_marginTop="8dp" />
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp"
+            android:drawableStart="@android:drawable/ic_menu_compass"
+            android:drawablePadding="8dp" />
+        
         <Spinner
             android:id="@+id/spGeneroProducto"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:layout_marginTop="4dp"
-            android:background="@android:drawable/btn_dropdown"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp"
-            android:spinnerMode="dropdown"/>
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/edittext_background"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:spinnerMode="dropdown"
+            android:popupBackground="@color/blanco" />
+
+        <!-- Campo URL de Imagen -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="URL de la Imagen (Opcional)"
+            android:textColor="@color/negro"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp"
+            android:drawableStart="@android:drawable/ic_menu_camera"
+            android:drawablePadding="8dp" />
 
         <EditText
             android:id="@+id/etImagenUrl"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="URL de la imagen"
+            android:hint="Ej: https://ejemplo.com/imagen.jpg"
             android:minHeight="48dp"
             android:paddingVertical="12dp"
-            android:layout_marginTop="8dp" />
+            android:paddingHorizontal="16dp"
+            android:background="@drawable/edittext_background"
+            android:layout_marginBottom="24dp"
+            android:inputType="textUri"
+            android:textColor="@color/negro"
+            android:textColorHint="@color/gris_hint" />
+
+        <!-- Nota informativa -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="* Campos obligatorios"
+            android:textColor="@color/gris_medio"
+            android:textSize="12sp"
+            android:textStyle="italic"
+            android:layout_marginBottom="16dp"
+            android:gravity="center" />
 
         <Button
             android:id="@+id/btnGuardarProducto"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/btn_guardar_producto"
+            android:layout_height="56dp"
+            android:text="💾 Guardar Producto"
             android:backgroundTint="@color/verde_gnova"
             android:textColor="@color/blanco"
-            android:layout_marginTop="16dp" />
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp"
+            android:elevation="4dp" />
     </LinearLayout>
 </ScrollView>

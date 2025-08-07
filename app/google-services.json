@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "69535327797",
-    "project_id": "appmoviles-93ef6",
-    "storage_bucket": "appmoviles-93ef6.firebasestorage.app"
+    "project_number": "774947041310",
+    "project_id": "gnova-alejandro",
+    "storage_bucket": "gnova-alejandro.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:69535327797:android:399799a83ce7c53254337c",
+        "mobilesdk_app_id": "1:774947041310:android:57631e95ea71372385be0f",
         "android_client_info": {
           "package_name": "com.proyecto.tienda.gnova"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDrq0jxclCy4v9IDzPk_O6USbQika9SU_E"
+          "current_key": "AIzaSyCmgGbMzkz5rqKbkQOEYzX8zxHoxmw7HAk"
         }
       ],
       "services": {

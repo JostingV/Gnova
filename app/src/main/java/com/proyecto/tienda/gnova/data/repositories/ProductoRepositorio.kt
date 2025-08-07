@@ -198,4 +198,152 @@ object ProductoRepositorio {
                 onFailure(e)
             }
     }
+
+    /**
+     * Inicializa algunos productos de ejemplo en Firestore.
+     * Este método solo debe llamarse una vez para poblar la base de datos.
+     */
+    fun inicializarProductosEjemplo() {
+        val productosEjemplo = listOf(
+            // Productos para Hombre
+            Producto(
+                nombre = "Nike Air Max",
+                descripcion = "Zapatillas deportivas para hombre con tecnología Air Max",
+                precio = 159.99,
+                talla = "42",
+                stock = 15,
+                categoria = "Zapatillas",
+                imagenUrl = "", // Usará el logo como placeholder
+                genero = "Hombre"
+            ),
+            Producto(
+                nombre = "Camiseta Deportiva",
+                descripcion = "Camiseta transpirable para entrenamientos",
+                precio = 29.99,
+                talla = "L",
+                stock = 25,
+                categoria = "Ropa",
+                imagenUrl = "", // Usará el logo como placeholder
+                genero = "Hombre"
+            ),
+            Producto(
+                nombre = "Reloj Digital",
+                descripcion = "Reloj deportivo con monitor de actividad",
+                precio = 89.99,
+                talla = "Única",
+                stock = 8,
+                categoria = "Accesorios",
+                imagenUrl = "", // Usará el logo como placeholder
+                genero = "Hombre"
+            ),
+            Producto(
+                nombre = "Chaqueta Nueva Temporada",
+                descripcion = "Chaqueta de última moda para hombre",
+                precio = 129.99,
+                talla = "M",
+                stock = 12,
+                categoria = "Novedades",
+                imagenUrl = "", // Usará el logo como placeholder
+                genero = "Hombre"
+            ),
+            
+            // Productos para Mujer
+            Producto(
+                nombre = "Zapatillas Running Mujer",
+                descripcion = "Zapatillas ligeras para running femenino",
+                precio = 139.99,
+                talla = "38",
+                stock = 20,
+                categoria = "Zapatillas",
+                imagenUrl = "", // Usará el logo como placeholder
+                genero = "Mujer"
+            ),
+            Producto(
+                nombre = "Vestido Casual",
+                descripcion = "Vestido cómodo para uso diario",
+                precio = 69.99,
+                talla = "M",
+                stock = 18,
+                categoria = "Ropa",
+                imagenUrl = "", // Usará el logo como placeholder
+                genero = "Mujer"
+            ),
+            Producto(
+                nombre = "Bolso de Mano",
+                descripcion = "Bolso elegante para ocasiones especiales",
+                precio = 79.99,
+                talla = "Única",
+                stock = 10,
+                categoria = "Accesorios",
+                imagenUrl = "", // Usará el logo como placeholder
+                genero = "Mujer"
+            ),
+            Producto(
+                nombre = "Blusa Tendencia",
+                descripcion = "Blusa de última moda para mujer",
+                precio = 49.99,
+                talla = "S",
+                stock = 22,
+                categoria = "Novedades",
+                imagenUrl = "", // Usará el logo como placeholder
+                genero = "Mujer"
+            ),
+
+            // Productos para Niño
+            Producto(
+                nombre = "Zapatillas Niño",
+                descripcion = "Zapatillas cómodas para niños activos",
+                precio = 59.99,
+                talla = "32",
+                stock = 30,
+                categoria = "Zapatillas",
+                imagenUrl = "", // Usará el logo como placeholder
+                genero = "Niño"
+            ),
+            Producto(
+                nombre = "Camiseta Niño",
+                descripcion = "Camiseta divertida con estampados",
+                precio = 19.99,
+                talla = "8",
+                stock = 35,
+                categoria = "Ropa",
+                imagenUrl = "", // Usará el logo como placeholder
+                genero = "Niño"
+            ),
+
+            // Productos para Niña
+            Producto(
+                nombre = "Zapatillas Niña",
+                descripcion = "Zapatillas con brillos para niñas",
+                precio = 55.99,
+                talla = "30",
+                stock = 25,
+                categoria = "Zapatillas",
+                imagenUrl = "", // Usará el logo como placeholder
+                genero = "Niña"
+            ),
+            Producto(
+                nombre = "Vestido Niña",
+                descripcion = "Vestido colorido para niñas",
+                precio = 39.99,
+                talla = "6",
+                stock = 28,
+                categoria = "Ropa",
+                imagenUrl = "", // Usará el logo como placeholder
+                genero = "Niña"
+            )
+        )
+
+        productosEjemplo.forEach { producto ->
+            agregarProducto(
+                producto = producto,
+                onSuccess = { 
+                    Log.d("ProductoRepositorio", "Producto ejemplo ${producto.nombre} agregado exitosamente")
+                },
+                onFailure = { exception ->
+                    Log.e("ProductoRepositorio", "Error al agregar producto ejemplo ${producto.nombre}: ${exception.message}")
+                }
+            )
+        }
+    }
 }
